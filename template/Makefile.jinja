@@ -1,0 +1,15 @@
+
+.PHONY: run clean build
+
+run:
+	uv run ./{{ module_slug }}/main.py $(filter-out run,$(MAKECMDGOALS))
+
+build:
+	uv build
+
+clean:
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+
+%:
+	@:
+
